@@ -15,4 +15,14 @@ RSpec.describe PostsController, type: :controller do
       expect(response).to have_http_status(:success)
     end
   end
+
+  describe "grams#create action" do
+    it "should successfully create a new post in our database" do
+      post :create, post: {message: 'Hello'}
+      expect(response).to redirect_to root_path
+
+      post = Post.last
+      expect(post.message).to eq('Hello')
+    end
+  end
 end
