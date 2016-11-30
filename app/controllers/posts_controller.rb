@@ -25,7 +25,7 @@ class PostsController < ApplicationController
     @post.update_attributes(post_params)
 
     if @post.valid?
-      redirect_to root_path
+      redirect_to post_path(@post)
     else
       return render :edit, status: :unprocessable_entity
     end
@@ -38,6 +38,13 @@ class PostsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @post = Post.find_by_id(params[:id])
+    return render_not_found if @post.blank?
+    @post.destroy
+    redirect_to root_path
   end
 
   private
