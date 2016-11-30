@@ -1,7 +1,7 @@
-<h2>New Post</h2>
-<%= simple_form_for @post do |f| %>
-  <%= f.input :message %>
-  <%= f.submit "Post!" %>
-<% end %>
-
-<!-- simple_form_for(@user, html: { class: 'form-horizontal' }) do |form| -->
+<div class="col-md-4 col-md-offset-4">
+  <h2>New Post</h2>
+  <%= simple_form_for @post do |f| %>
+    <%= f.input :message %>
+    <%= f.submit "Post", class: 'btn btn-primary' %>
+  <% end %>
+</div>

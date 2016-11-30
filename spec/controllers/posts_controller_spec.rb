@@ -1,6 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
+  describe "grams#show action" do
+    it "should successfully show the page if the post is found" do
+
+    end
+
+    it "should return a 404 error if the gram is not found" do
+      
+    end
+  end
   describe "grams#index action" do
     it "should successfully show the page" do
       get :index
@@ -15,11 +24,7 @@ RSpec.describe PostsController, type: :controller do
       expect(response).to redirect_to new_user_session_path
     end
     it "should successfully show the new form" do
-      user = User.create(
-        email: 'test@gmail.com',
-        password: 'secretPass',
-        password_confirmation: 'secretPass'
-        )
+      user = FactoryGirl.create(:user)
       sign_in user
 
       get :new 
@@ -33,11 +38,7 @@ RSpec.describe PostsController, type: :controller do
       expect(response).to redirect_to new_user_session_path
     end
     it "should successfully create a new post in our database" do
-      user = User.create(
-        email: 'test@gmail.com',
-        password: 'secretPass',
-        password_confirmation: 'secretPass'
-        )
+      user = FactoryGirl.create(:user)
       sign_in user
 
       post :create, post: {message: 'Hello'}
@@ -49,16 +50,13 @@ RSpec.describe PostsController, type: :controller do
     end
 
     it "should properly deal with validation errors" do
-      user = User.create(
-        email: 'test@gmail.com',
-        password: 'secretPass',
-        password_confirmation: 'secretPass'
-        )
+      user = FactoryGirl.create(:user)
       sign_in user
 
+      post_count = Post.count
       post :create, post: {message: ''}
       expect(response).to have_http_status(:unprocessable_entity)
-      expect(Post.count).to eq 0
+      expect(post_count).to eq Post.count
     end
   end
 end
