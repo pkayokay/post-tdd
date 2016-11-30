@@ -16,6 +16,17 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @post = Post.find_by_id(params[:id])
+    if @post.blank?
+      render txt: 'Not found', status: :not_found
+    end
+  end
+
+  def update
+    @post = Post.update_attributes(post_params)
+  end
+
   def create
     @post = current_user.posts.create(post_params)
     if @post.valid?
@@ -28,6 +39,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:message)
+    params.require(:post).permit(:title, :message)
   end
 end
