@@ -11,16 +11,12 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by_id(params[:id])
-    if @post.blank?
-      render txt: 'Not found', status: :not_found
-    end
+      return render_not_found if @post.blank?
   end
 
   def edit
     @post = Post.find_by_id(params[:id])
-    if @post.blank?
-      render txt: 'Not found', status: :not_found
-    end
+      return render_not_found if @post.blank?
   end
 
   def update
@@ -40,5 +36,9 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :message)
+  end
+
+  def render_not_found
+    render text: 'Not found', status: :not_found
   end
 end
