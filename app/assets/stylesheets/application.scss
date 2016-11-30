@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+abbr[title], abbr[data-original-title] {
+  display: none;
+}
 
 .alert, .notice {
   margin-bottom: 0;
