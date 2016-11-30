@@ -7,6 +7,13 @@ class PostsController < ApplicationController
   def new
   end
 
+  def show
+    @post = Post.find_by_id(params[:id])
+    if @post.blank?
+      render txt: 'Not found', status: :not_found
+    end
+  end
+
   def create
     @post = current_user.posts.create(post_params)
     if @post.valid?
