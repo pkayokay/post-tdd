@@ -16,17 +16,14 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find_by_id(params[:id])
     return render_not_found if @post.blank?
-    if @post.user != current_user
-      render text: 'Forbidden', status: :forbidden
-    end
+    return render_forbidden if @post.user != current_user
+
   end
 
   def update
     @post = Post.find_by_id(params[:id])
     return render_not_found if @post.blank?
-    if @post.user != current_user
-      return render text: 'Forbidden', status: :forbidden
-    end
+    return render_forbidden if @post.user != current_user
     @post.update_attributes(post_params)
     if @post.valid?
       redirect_to post_path(@post)
@@ -47,9 +44,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find_by_id(params[:id])
     return render_not_found if @post.blank?
-    if @post.user != current_user
-      return render text: 'Forbidden', status: :forbidden
-    end
+    return render_forbidden if @post.user != current_user
     @post.destroy
     redirect_to root_path
   end
@@ -62,5 +57,9 @@ class PostsController < ApplicationController
 
   def render_not_found
     render text: 'Not found', status: :not_found
+  end
+
+  def render_forbidden
+    render text: 'Forbidden', status: :forbidden
   end
 end
