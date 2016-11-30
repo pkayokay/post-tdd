@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
-    
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def index
     @posts = Post.order(created_at: :desc)
   end
@@ -16,11 +15,20 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find_by_id(params[:id])
-      return render_not_found if @post.blank?
+    return render_not_found if @post.blank?
   end
 
   def update
-    @post = Post.update_attributes(post_params)
+    @post = Post.find_by_id(params[:id])
+    return render_not_found if @post.blank?
+
+    @post.update_attributes(post_params)
+
+    if @post.valid?
+      redirect_to root_path
+    else
+      return render :edit, status: :unprocessable_entity
+    end
   end
 
   def create

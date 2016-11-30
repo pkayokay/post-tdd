@@ -25,7 +25,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
-            <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "Sign out", destroy_user_session_path, method: :get %></li>
           <% else %>
             <li><%= link_to "Sign In", new_user_session_path %></li>
             <li><%= link_to "Sign Up", new_user_registration_path %></li>
@@ -34,8 +34,6 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-
-
   <% if notice.present? %>
     <p class="notice"><%= notice %></p>
   <% end %>

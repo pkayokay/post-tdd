@@ -1,5 +1,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+$theme: #5cb85c;
+a {
+  color: $theme;
+}
+a:focus, a:visited, a:hover {
+  color: $theme;
+  opacity: .8;
+  text-decoration: none;
+}
 abbr[title], abbr[data-original-title] {
   display: none;
 }
@@ -13,9 +23,6 @@ abbr[title], abbr[data-original-title] {
   font-weight: bold;
 }
 
-.navbar-default .navbar-brand {
-  color: #399bef;
-}
-.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-  color: #286090;
+.post-title {
+  color: $theme;
 }
