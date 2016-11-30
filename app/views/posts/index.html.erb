@@ -1,6 +1,6 @@
 <div class="col-md-8 col-md-offset-2">
 <% @posts.each do |post| %>
-  <h2><%= link_to post.title, post_path(post) %></h2>
+  <h2 class="post-title"><%= link_to post.title, post_path(post) %></h2>
   <p><%= post.message %></p>
   <hr>
 <% end %>
