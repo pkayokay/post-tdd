@@ -1,7 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-$theme: #5cb85c;
+$theme: #000;
 
 img {
   width: 100%;
@@ -19,6 +19,10 @@ a:focus, a:visited, a:hover {
 
 abbr[title], abbr[data-original-title] {
   display: none;
+}
+
+.navbar-default {
+  background: #fff;
 }
 
 .alert, .notice {
