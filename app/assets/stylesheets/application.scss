@@ -27,10 +27,10 @@ abbr[title], abbr[data-original-title] {
   border-radius: 0;
   margin: 0;
   padding: 12px;
-  background: $theme;
+  background: transparent;
   text-align: center;
-  color: #fff;
-  opacity: .8;
+  color: #333;
+  border: 0;
 }
 .navbar-brand {
   font-weight: bold;
