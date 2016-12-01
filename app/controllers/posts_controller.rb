@@ -10,14 +10,13 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by_id(params[:id])
-      return render_not_found if @post.blank?
+    return render_not_found if @post.blank?
   end
 
   def edit
     @post = Post.find_by_id(params[:id])
     return render_not_found if @post.blank?
     return render_forbidden if @post.user != current_user
-
   end
 
   def update
