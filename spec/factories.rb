@@ -9,7 +9,7 @@ FactoryGirl.define do
 
   factory :post do
     title "Hello"
-    message "World"
+    caption "World"
     association :user
   end
 end
