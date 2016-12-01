@@ -9,6 +9,7 @@ FactoryGirl.define do
 
   factory :post do
     title "Hello"
+    picture { fixture_file_upload(Rails.root.join('spec', 'fixtures', 'picture.png'), 'image/png') }
     caption "World"
     association :user
   end
