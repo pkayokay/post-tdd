@@ -2,6 +2,12 @@
 @import "bootstrap";
 
 $theme: #5cb85c;
+
+img {
+  width: 100%;
+  max-width: 500px;
+  padding: 10px 0;
+}
 a {
   color: $theme;
 }
@@ -24,6 +30,7 @@ abbr[title], abbr[data-original-title] {
   background: $theme;
   text-align: center;
   color: #fff;
+  opacity: .8;
 }
 .navbar-brand {
   font-weight: bold;
@@ -31,4 +38,31 @@ abbr[title], abbr[data-original-title] {
 
 .post-title {
   color: $theme;
+}
+
+.jumbotron {
+  margin-bottom: 0;
+  background: $theme;
+
+  h2 {
+    text-align: center;
+    color: #fff;
+  }
+
+}
+
+@media screen and (max-width: 650px) {
+
+  .col-xs-offset-2 {
+      margin-left: 1%;
+  }
+  .col-xs-8 {
+      width: 98%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  img {
+    max-width: 100%;
+  }
 }

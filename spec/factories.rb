@@ -10,7 +10,6 @@ FactoryGirl.define do
   factory :post do
     title "Hello"
     caption "World"
-    picture "Cool"
     association :user
   end
 end
