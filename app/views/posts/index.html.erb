@@ -1,10 +1,15 @@
 
+<style> 
+  .navbar-default {
+    margin: 0;
+
+  }
+</style>
 <div class="col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2" style="margin-top: 10px">
 <% @posts.each do |post| %>
 <!--   <h2 class="post-title"><%= link_to post.title, post_path(post) %></h2> -->
   <h2 class="post-title"><%= post.title %></h2>
-  <p><%= image_tag post.picture %></p>
   <p><%= post.caption %></p>
-  <hr>
+  <p><%= image_tag post.picture %></p>
 <% end %>
 </div>
