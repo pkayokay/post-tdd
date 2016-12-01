@@ -2,6 +2,7 @@
 <% @posts.each do |post| %>
   <h2 class="post-title"><%= link_to post.title, post_path(post) %></h2>
   <p><%= post.caption %></p>
+  <p><%= image_tag post.picture %></p>
   <hr>
 <% end %>
 </div>
