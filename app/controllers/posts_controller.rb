@@ -54,11 +54,4 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :caption, :picture)
   end
 
-  def render_not_found
-    render text: 'Not found', status: :not_found
-  end
-
-  def render_forbidden
-    render text: 'Forbidden', status: :forbidden
-  end
 end

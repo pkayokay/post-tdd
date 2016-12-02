@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe PostsController, type: :controller do
   
   describe "posts#destroy action" do
-    it "shoulnd't allow users who didn't create the gram to destroy it" do
+    it "shoulnd't allow users who didn't create the post to destroy it" do
       post = FactoryGirl.create(:post)
       user = FactoryGirl.create(:user)
       sign_in user
@@ -28,7 +28,7 @@ RSpec.describe PostsController, type: :controller do
       expect(post).to eq nil
     end
 
-    it "should return a 404 caption if we cannot find a gram with the id that is specified" do
+    it "should return a 404 caption if we cannot find a post with the id that is specified" do
       post = FactoryGirl.create(:post)
       sign_in post.user
 
@@ -49,7 +49,7 @@ RSpec.describe PostsController, type: :controller do
 
     it "shouldn't let unauthenticated users create a post" do
       post = FactoryGirl.create(:post)
-      patch :update, id: post.id, gram: {title: 'Hello', caption: 'World'}
+      patch :update, id: post.id, post: {title: 'Hello', caption: 'World'}
       expect(response).to redirect_to new_user_session_path
     end
 
