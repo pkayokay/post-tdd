@@ -18,6 +18,7 @@
       <%= simple_form_for Comment.new, url: post_comments_path(post) do |f| %>
         <%= f.input :message, label: false %>
         <%= f.submit 'Comment', class: 'btn btn-success' %>
+        <hr>
       <% end %>
 <% end %>
   <div style="text-align:center">
