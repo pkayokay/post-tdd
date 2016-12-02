@@ -1,7 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
-$theme: #000;
+* {
+  font-family: 'Roboto', 'Helvetica Neue';
+}
+$theme: #5cb85c;
 
 
 textarea.form-control {
@@ -44,7 +48,7 @@ abbr[title], abbr[data-original-title] {
 }
 
 .post-title {
-  color: $theme;
+  color: #000;
 }
 
 .jumbotron {
